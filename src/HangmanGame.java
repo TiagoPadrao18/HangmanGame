@@ -26,7 +26,7 @@ public class HangmanGame {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
         int count = 6;
-        System.out.println("The theme of the game word is " + themeOfTheGameWord + "\nYou have ONLY " + count + " attempts!\n");
+        System.out.println("The theme of the game word is " + themeOfTheGameWord + "\nYou have \u001B[1mONLY\u001B[0m " + count + " attempts!");
         while (count > 0 && !Arrays.equals(gameWordArray, guessArray)) {
 
             System.out.println("\nGuess the word: ");
@@ -47,15 +47,15 @@ public class HangmanGame {
             if (!verifyCharInWord) {
                 if (count == 2) {
                     count--;
-                    System.out.println("\nThat character doesn't exist in the word! \nThis is your last chance to guess the word!");
-                    System.out.println("\nHere is a hint: " + wordHint);
+                    System.out.println("\n\u001b[31mThat character doesn't exist in the word! \nThis is your last chance to guess the word!\u001b[0m");
+                    System.out.println("\n\u001b[33;1mHere is a hint: " + wordHint + "\u001b[0m");
                 }else if (count == 3) {
                     count--;
                     System.out.println("\nThat character doesn't exist in the word! \nRemaining attempts: " + count);
-                    System.out.println("\nHere is a hint: " + wordHint);
+                    System.out.println("\n\u001b[33;1mHere is a hint: " + wordHint + "\u001b[0m");
                 } else {
                     count--;
-                    System.out.println("\nThat character doesn't exist in the word! \nRemaining attempts: " + count);
+                    System.out.println("\n\u001b[31mThat character doesn't exist in the word! \nRemaining attemps: " + count +"\u001b[0m");
                 }
             }
         }
@@ -63,9 +63,9 @@ public class HangmanGame {
         System.out.println(Arrays.toString(guessArray));
 
         if (Arrays.equals(gameWordArray, guessArray)){
-            System.out.println("\nNice you guessed the word: " + gameWord);
+            System.out.println("\n\u001b[32;1mNice you guessed the word: " + gameWord + "\u001b[0m 🎉");
         }   else {
-            System.out.println("\nYou ran out of attemps. The correct word was: " + gameWord);
+            System.out.println("\n\u001b[31mYou ran out of attemps. The correct word was: " + gameWord +"\u001b[0m 🥲");
         }
     }
 }
