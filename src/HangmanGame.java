@@ -10,8 +10,10 @@ public class HangmanGame {
         String themeOfTheGameWord = scan.nextLine();
 
         System.out.print("Insert the game word: ");
-        String gameWord = scan.next();
+        String gameWord = scan.nextLine();
 
+        System.out.print("Give a hint: ");
+        String wordHint = scan.nextLine();
 
         String[] gameWordArray = gameWord.split("");
         String[] guessArray = new String[gameWord.length()];
@@ -24,11 +26,10 @@ public class HangmanGame {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
         int count = 6;
-        System.out.println("The theme of the game word is " + themeOfTheGameWord + "\nYou have ONLY " + count + " attempts\n");
+        System.out.println("The theme of the game word is " + themeOfTheGameWord + "\nYou have ONLY " + count + " attempts!\n");
         while (count > 0 && !Arrays.equals(gameWordArray, guessArray)) {
 
-
-            System.out.println("Guess the word: ");
+            System.out.println("\nGuess the word: ");
             System.out.println(Arrays.toString(guessArray));
             System.out.print("Insert a character: ");
             String userGuess = scan.next();
@@ -44,21 +45,27 @@ public class HangmanGame {
 
 
             if (!verifyCharInWord) {
-                count--;
-                System.out.println("\n That character doesn't exist in the word! \nRemaining attempts: " + count);
+                if (count == 2) {
+                    count--;
+                    System.out.println("\nThat character doesn't exist in the word! \nThis is your last chance to guess the word!");
+                    System.out.println("\nHere is a hint: " + wordHint);
+                }else if (count == 3) {
+                    count--;
+                    System.out.println("\nThat character doesn't exist in the word! \nRemaining attempts: " + count);
+                    System.out.println("\nHere is a hint: " + wordHint);
+                } else {
+                    count--;
+                    System.out.println("\nThat character doesn't exist in the word! \nRemaining attempts: " + count);
+                }
             }
         }
+
         System.out.println(Arrays.toString(guessArray));
 
         if (Arrays.equals(gameWordArray, guessArray)){
             System.out.println("\nNice you guessed the word: " + gameWord);
-
         }   else {
             System.out.println("\nYou ran out of attemps. The correct word was: " + gameWord);
         }
-
-
-
-
     }
 }
