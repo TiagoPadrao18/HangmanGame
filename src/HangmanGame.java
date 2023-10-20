@@ -45,7 +45,7 @@ public class HangmanGame {
 
             if (!verifyCharInWord) {
                 count--;
-                System.out.println("\n That character doesn't exist in the word! \nRemaining attemps :" + count);
+                System.out.println("\n That character doesn't exist in the word! \nRemaining attempts: " + count);
             }
         }
         System.out.println(Arrays.toString(guessArray));
