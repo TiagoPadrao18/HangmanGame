@@ -6,6 +6,8 @@ public class HangmanGame {
 
         Scanner scan = new Scanner(System.in);
 
+        System.out.println("tesfmdnfklsdnffnkfs");
+
         System.out.print("Insert the theme of the game word: ");
         String themeOfTheGameWord = scan.nextLine();
 
