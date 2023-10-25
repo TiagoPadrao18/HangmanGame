@@ -6,13 +6,17 @@ public class HangmanGame {
 
         Scanner scan = new Scanner(System.in);
 
-        System.out.print("Insert the theme of the game word: ");
+        System.out.println("\nInsert the theme of the game word! ");
+        System.out.print("Player 1 > ");
         String themeOfTheGameWord = scan.nextLine();
 
-        System.out.print("Insert the game word: ");
+        System.out.println("\nInsert the game word! ");
+        System.out.print("Player 1 > ");
         String gameWord = scan.nextLine();
+        gameWord = gameWord.toLowerCase();
 
-        System.out.print("Give a hint: ");
+        System.out.println("\nGive a hint! ");
+        System.out.print("Player 1 > ");
         String wordHint = scan.nextLine();
 
         String[] gameWordArray = gameWord.split("");
@@ -31,8 +35,10 @@ public class HangmanGame {
 
             System.out.println("\nGuess the word: ");
             System.out.println(Arrays.toString(guessArray));
-            System.out.print("Insert a character: ");
+            System.out.println("\nInsert a character!");
+            System.out.print("Player 2 > ");
             String userGuess = scan.next();
+            userGuess = userGuess.toLowerCase().replaceAll("([^A-z0-9])\\w+", "");
 
             boolean verifyCharInWord = false;
 
