@@ -37,7 +37,7 @@ public class HangmanGame {
             System.out.println(Arrays.toString(guessArray));
             System.out.println("\nInsert a character!");
             System.out.print("Player 2 > ");
-            String userGuess = scan.next();
+            String userGuess = scan.nextLine();
             userGuess = userGuess.toLowerCase().replaceAll("([^A-z0-9])\\w+", "");
 
             boolean verifyCharInWord = false;
